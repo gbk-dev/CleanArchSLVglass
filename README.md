@@ -9,6 +9,7 @@
 - MVVM
 - CleanArchitecture
 - Room
+- Retrofit
 - Dagger Hilt
 - MapKit
 - Glide
