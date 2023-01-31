@@ -14,7 +14,9 @@ import com.example.cleanarchslvglass.presentation.products.GlassActivity
 import com.example.cleanarchslvglass.presentation.products.GlassContainerActivity
 import com.example.cleanarchslvglass.presentation.products.MirrorActivity
 import com.example.cleanarchslvglass.presentation.viewmodel.CategoryViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private val viewModel : CategoryViewModel by viewModels()

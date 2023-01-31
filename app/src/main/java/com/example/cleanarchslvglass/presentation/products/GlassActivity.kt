@@ -13,7 +13,9 @@ import com.example.cleanarchslvglass.presentation.MainActivity
 import com.example.cleanarchslvglass.presentation.adapters.GlassAdapter
 import com.example.cleanarchslvglass.presentation.fragments.GlassFragment
 import com.example.cleanarchslvglass.presentation.viewmodel.ProductsViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class GlassActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityGlassBinding

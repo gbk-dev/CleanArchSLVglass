@@ -12,8 +12,10 @@ import com.example.cleanarchslvglass.databinding.ActivityMainBinding
 import com.example.cleanarchslvglass.presentation.fragments.BasketFragment
 import com.example.cleanarchslvglass.presentation.fragments.HomeFragment
 import com.example.cleanarchslvglass.presentation.fragments.SettingsFragment
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

@@ -4,37 +4,21 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.cleanarchslvglass.data.repository.StageRepositoryImpl
 import com.example.cleanarchslvglass.domain.models.Stage
 import com.example.cleanarchslvglass.domain.usecase.*
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class StageViewModel : ViewModel() {
-
-    private val stageRepository by lazy {
-        StageRepositoryImpl()
-    }
-
-    private val getStageGlassUseCase by lazy {
-        GetStageGlassUseCase(stageRepository = stageRepository)
-    }
-
-    private val getStageSodiumLiquidGlassUseCase by lazy {
-        GetStageSodiumLiquidGlassUseCase(stageRepository = stageRepository)
-    }
-
-    private val getStageSodiumSilicateUseCase by lazy {
-        GetStageSodiumSilicateUseCase(stageRepository = stageRepository)
-    }
-
-    private val getStageUseCase by lazy {
-        GetStageUseCase(stageRepository = stageRepository)
-    }
-
-    private val checkLanguageStageUseCase by lazy {
-        CheckLanguageStageUseCase(stageRepository = stageRepository)
-    }
+@HiltViewModel
+class StageViewModel @Inject constructor(
+    private val getStageGlassUseCase: GetStageGlassUseCase,
+    private val getStageSodiumLiquidGlassUseCase: GetStageSodiumLiquidGlassUseCase,
+    private val getStageSodiumSilicateUseCase: GetStageSodiumSilicateUseCase,
+    private val getStageUseCase: GetStageUseCase,
+    private val checkLanguageStageUseCase: CheckLanguageStageUseCase
+) : ViewModel() {
 
     private val _stageGlass = MutableLiveData<List<Stage>>()
     val stageGlass : LiveData<List<Stage>> by lazy {

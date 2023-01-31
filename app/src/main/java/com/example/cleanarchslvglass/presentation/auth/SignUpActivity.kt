@@ -10,9 +10,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.cleanarchslvglass.databinding.ActivitySignUpBinding
 import com.example.cleanarchslvglass.domain.models.User
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 
-
+@AndroidEntryPoint
 class SignUpActivity : AppCompatActivity() {
 
     private lateinit var viewModel: AuthViewModel
@@ -55,21 +56,14 @@ class SignUpActivity : AppCompatActivity() {
                     val user: User = User(firstName = firstName.toString(), lastName = lastName.toString(), email = email.toString())
 
                     var result = ""
-                    val signUp = lifecycleScope.launch {
+                    lifecycleScope.launch {
                         viewModel.createUser(user, password.toString())
                         result = viewModel.createUser(user, password.toString())
                     }
 
-                    if (signUp.isCompleted){
-                        Toast.makeText(this@SignUpActivity, result, Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this, SignInActivity::class.java)
-                        startActivity(intent)
-                    } else if (signUp.isCancelled){
-                        lifecycleScope.launch {
-                            signUp.cancelAndJoin()
-                        }
-                        Toast.makeText(this@SignUpActivity, result, Toast.LENGTH_SHORT).show()
-                    }
+                    Toast.makeText(this@SignUpActivity, result, Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, SignInActivity::class.java)
+                    startActivity(intent)
 
                 } else {
                     Toast.makeText(this, "Пароли не совпадают", Toast.LENGTH_SHORT).show()

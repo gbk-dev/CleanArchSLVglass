@@ -21,10 +21,12 @@ import com.example.cleanarchslvglass.presentation.MainActivity
 import com.example.cleanarchslvglass.presentation.adapters.BasketAdapter
 import com.example.cleanarchslvglass.presentation.viewmodel.BasketViewModel
 import com.example.cleanarchslvglass.presentation.viewmodel.OrdersViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+@AndroidEntryPoint
 class BasketFragment : Fragment() {
 
     private var _binding : FragmentBasketBinding? = null

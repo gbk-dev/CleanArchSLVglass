@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cleanarchslvglass.databinding.ActivityStageBinding
 import com.example.cleanarchslvglass.presentation.adapters.StageAdapter
 import com.example.cleanarchslvglass.presentation.viewmodel.StageViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class StageActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityStageBinding

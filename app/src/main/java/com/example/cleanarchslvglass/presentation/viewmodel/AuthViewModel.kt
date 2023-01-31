@@ -6,24 +6,15 @@ import com.example.cleanarchslvglass.domain.models.User
 import com.example.cleanarchslvglass.domain.usecase.AuthUserUseCase
 import com.example.cleanarchslvglass.domain.usecase.CheckUserUseCase
 import com.example.cleanarchslvglass.domain.usecase.SetUserUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class AuthViewModel : ViewModel() {
-
-    private val userAuthRepository by lazy {
-        UserAuthRepositoryImpl()
-    }
-
-    private val setUserUseCase by lazy {
-        SetUserUseCase(userAuthRepository = userAuthRepository)
-    }
-
-    private val authUserUseCase by lazy {
-        AuthUserUseCase(userAuthRepository = userAuthRepository)
-    }
-
-    private val checkUserUseCase by lazy {
-        CheckUserUseCase(userAuthRepository = userAuthRepository)
-    }
+@HiltViewModel
+class AuthViewModel @Inject constructor(
+    private val setUserUseCase: SetUserUseCase,
+    private val authUserUseCase: AuthUserUseCase,
+    private val checkUserUseCase: CheckUserUseCase
+) : ViewModel() {
 
     suspend fun createUser(user: User, password: String): String{
         return setUserUseCase.createUser(user, password)

@@ -12,7 +12,9 @@ import com.example.cleanarchslvglass.R
 import com.example.cleanarchslvglass.databinding.FragmentOrdersBinding
 import com.example.cleanarchslvglass.presentation.adapters.OrdersAdapter
 import com.example.cleanarchslvglass.presentation.viewmodel.OrdersViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class OrdersFragment : Fragment() {
 
     private val viewModel : OrdersViewModel by viewModels()

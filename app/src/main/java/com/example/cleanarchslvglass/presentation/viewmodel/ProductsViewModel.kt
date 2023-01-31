@@ -12,30 +12,18 @@ import com.example.cleanarchslvglass.domain.usecase.CheckLanguageProductsUseCase
 import com.example.cleanarchslvglass.domain.usecase.GetGlassContainerUseCase
 import com.example.cleanarchslvglass.domain.usecase.GetGlassUseCase
 import com.example.cleanarchslvglass.domain.usecase.GetMirrorUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ProductsViewModel : ViewModel() {
-
-    private val productsRepository by lazy {
-        ProductsRepositoryImpl()
-    }
-
-    private val getGlassUseCase by lazy {
-        GetGlassUseCase(productsRepository = productsRepository)
-    }
-
-    private val getMirrorUseCase by lazy {
-        GetMirrorUseCase(productsRepository = productsRepository)
-    }
-
-    private val getGlassContainerUseCase by lazy {
-        GetGlassContainerUseCase(productsRepository = productsRepository)
-    }
-
-    private val checkLanguageProductsUseCase by lazy {
-        CheckLanguageProductsUseCase(productsRepository = productsRepository)
-    }
+@HiltViewModel
+class ProductsViewModel @Inject constructor(
+    private val getGlassUseCase: GetGlassUseCase,
+    private val getMirrorUseCase: GetMirrorUseCase,
+    private val getGlassContainerUseCase: GetGlassContainerUseCase,
+    private val checkLanguageProductsUseCase: CheckLanguageProductsUseCase
+) : ViewModel() {
 
     private val _glassList = MutableLiveData<List<Glass>>()
     val glassList : LiveData<List<Glass>> by lazy {

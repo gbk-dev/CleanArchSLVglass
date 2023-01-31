@@ -11,26 +11,17 @@ import com.example.cleanarchslvglass.domain.models.User
 import com.example.cleanarchslvglass.domain.usecase.GetUserDataUseCase
 import com.example.cleanarchslvglass.domain.usecase.LogOutUseCase
 import com.example.cleanarchslvglass.domain.usecase.UpdateUserDataUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class UserViewModel : ViewModel() {
-
-    private val userRepository by lazy {
-        UserRepositoryImpl(userStorage = SharedPrefUserStorage())
-    }
-
-    private val getUserDataUseCase by lazy {
-        GetUserDataUseCase(userRepository = userRepository)
-    }
-
-    private val logOutUseCase by lazy {
-        LogOutUseCase(userRepository = userRepository)
-    }
-
-    private val updateUserDataUseCase by lazy {
-        UpdateUserDataUseCase(userRepository = userRepository)
-    }
+@HiltViewModel
+class UserViewModel @Inject constructor(
+    private val getUserDataUseCase: GetUserDataUseCase,
+    private val logOutUseCase: LogOutUseCase,
+    private val updateUserDataUseCase: UpdateUserDataUseCase
+) : ViewModel() {
 
     private val _userList = MutableLiveData<User>()
     val userList : LiveData<User> by lazy {

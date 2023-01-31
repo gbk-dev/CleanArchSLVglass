@@ -14,7 +14,9 @@ import com.example.cleanarchslvglass.presentation.viewmodel.StageViewModel
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class StageOfProductionActivity : FragmentActivity() {
 
     private lateinit var binding: ActivityStageOfProductionBinding

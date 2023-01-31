@@ -18,8 +18,10 @@ import com.example.cleanarchslvglass.presentation.MainActivity
 import com.example.cleanarchslvglass.presentation.fragments.ContactsFragment
 import com.example.cleanarchslvglass.presentation.viewmodel.ProductsViewModel
 import com.google.android.material.appbar.AppBarLayout
+import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.abs
 
+@AndroidEntryPoint
 class MirrorActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMirrorBinding

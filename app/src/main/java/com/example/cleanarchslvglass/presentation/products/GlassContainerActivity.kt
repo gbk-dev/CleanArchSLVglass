@@ -24,8 +24,10 @@ import com.example.cleanarchslvglass.presentation.viewmodel.ProductsViewModel
 import com.example.cleanarchslvglass.presentation.viewmodel.UserViewModel
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class GlassContainerActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityGlassContainerBinding

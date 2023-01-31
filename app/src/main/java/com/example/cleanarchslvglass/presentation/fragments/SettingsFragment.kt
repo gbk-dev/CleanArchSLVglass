@@ -29,10 +29,12 @@ import com.example.cleanarchslvglass.presentation.viewmodel.UserViewModel
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.ktx.messaging
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.launch
 import java.util.*
 
+@AndroidEntryPoint
 class SettingsFragment : Fragment() {
 
     private val viewModel: UserViewModel by viewModels()
