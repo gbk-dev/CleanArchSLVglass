@@ -1,0 +1,110 @@
+<resources>
+    <string name="app_name">Салаватстекло</string>
+
+    <string name="glass_title">Стекло</string>
+    <string name="mirror_title">Зеркало</string>
+    <string name="glassCon_title">Стеклотара</string>
+
+    <string name="glass1">Листовое стекло и стекло окрашенное в масле</string>
+    <string name="glass2">Стекло архитектурное и низкоэмиссионное</string>
+    <string name="glass3">Стекло закаленное многослойное</string>
+    <string name="glass4">Силикат натрия растворимый</string>
+    <string name="glass5">Стекло натриевое жидкое</string>
+
+    <string name="mirror1">Листовое зеркало и зеркало окрашенное в масле</string>
+    <string name="mirror2">Зеркало закаленное многослойное</string>
+    <string name="mirror3">Зеркало натриевое жидкое</string>
+
+    <string name="category1">Зеркала изготавливаются на основе высокомарочного бесцветного листового стекла и стекла окрашенного в массе.</string>
+    <string name="category2">Обычное листовое стекло - уже дает нам необходимый комфорт и прекрасный дизайн.</string>
+    <string name="category3">Стеклотара производится из бесцветного стекла. Бутылка изготавливается на 8-ми секционных машинах.</string>
+
+    <string name="glass_con_title">Бутылка бесцветная</string>
+    <string name="glass_con_capacity200">Вместимость - 200 мл</string>
+    <string name="glass_con_capacity160">Вместимость - 160 мл</string>
+    <string name="glass_con_capacity375">Вместимость - 375 мл</string>
+    <string name="glass_con_capacity350">Вместимость - 350 мл</string>
+    <string name="glass_con_capacity500">Вместимость - 500 мл</string>
+    <string name="glass_con_capacity700">Вместимость - 700 мл</string>
+
+    <string name="menuTitle1">Мои заказы</string>
+    <string name="menuTitle2">Язык</string>
+    <string name="menuTitle3">Выйти</string>
+
+    <string name="login">Логин/почта</string>
+    <string name="password">Пароль</string>
+    <string name="confirm_password">Подтвердите пароль</string>
+
+    <string name="sign_in">Войти</string>
+    <string name="sign_up">Зарегестрироваться</string>
+    <string name="no_account">Нету аккаунта</string>
+
+    <string name="first_name">Имя</string>
+    <string name="last_name">Фамилия</string>
+    <string name="first_and_second_name">Имя Фамилия</string>
+    <string name="email">Почта</string>
+    <string name="change_first_name">Сменить имя</string>
+    <string name="change_last_name">Сменить фамилию</string>
+    <string name="have_account">Уже есть аккаунт</string>
+
+    <string name="left_request">Оставить заявку</string>
+    <string name="add_to_basket">В корзину</string>
+    <string name="added_to_basket">Добавлено в корзину</string>
+
+    <string name="article">Артикул</string>
+    <string name="title">Название</string>
+    <string name="capacity">Вместимость</string>
+    <string name="type_of_corolla">Тип венчика</string>
+
+    <string name="account">Аккаунт</string>
+    <string name="general">Общее</string>
+    <string name="notifications">Уведомления</string>
+    <string name="contacts">Контакты</string>
+    <string name="about_the_app">О приложении</string>
+    <string name="version">Версия</string>
+    <string name="build">Сборка</string>
+    <string name="intelligence">Все материалы взяты с сайта</string>
+    <string name="site">http://www.salstek.ru/</string>
+
+    <string name="contact_manger">Связаться с менеджером</string>
+    <string name="open_site">Открыть сайт</string>
+    <string name="stageOfProduction">Этапы производства</string>
+
+    <string name="phones">Телефоны</string>
+    <string name="numbers_of_phones">+7 (3476) 37–71-55\n+7 (3476) 37-71-20</string>
+    <string name="office">Канцелярия</string>
+    <string name="number_of_office">+7 (3476) 37-70-88</string>
+    <string name="email_contacts">E-mail</string>
+    <string name="email_for_contacts">info@salstek.ru</string>
+    <string name="address">Адрес</string>
+    <string name="address_for_contacts">453253, РФ, Республика Башкортостан, г. Салават, ул. Индустриальная, 18</string>
+
+    <string name="customer_service">Клиентский сервис</string>
+    <string name="first_contact">Листовое стекло и стекло окрашенное в массе / Низкоэмиссионое стекло / Зеркало</string>
+    <string name="second_contact">Архитектурное стекло</string>
+    <string name="third_contact">Стекло закаленное многослойное и стеклопакеты</string>
+    <string name="fourth_contact">Стеклотара</string>
+    <string name="fifth_contact">Силикат натрия растворимый</string>
+    <string name="sixth_contact">Стекло натриевое жидкое</string>
+
+    <string name="first_contact_numbers">+7 (3476) 37–71-88\n+7 (3476) 37-70-76\n+7 (3476) 37-71-59\n+7 (3476) 37-70-77</string>
+    <string name="second_contact_numbers">+7 (3476) 37-70-49\n+7 (3476) 37-71-61\n+7 (3476) 37-70-73</string>
+    <string name="third_contact_numbers">+7 (3476) 37-70-05</string>
+    <string name="fourth_contact_numbers">+7 (3476) 37-70-38</string>
+    <string name="fifth_contact_numbers">+7 (3476) 37-70-65\n+7 (917) 414-79-80\n+7 (987) 595-47-73\n+7 (987) 585-33-75</string>
+    <string name="sixth_contact_numbers">+7 (3476) 37-70-65\n+7 (917) 414-79-80\n+7 (987) 595-47-73\n+7 (987) 585-33-75</string>
+
+    <string name="purchasing_department">Отдел закупок</string>
+    <string name="first_contact_dep">Группа по оборудованию и комплектации</string>
+    <string name="second_contact_dep">Группа основных сырьевых материалов</string>
+    <string name="third_contact_dep">Группа вспомогательных материалов</string>
+    <string name="fourth_contact_dep">Группа по ремонту и ТО оборудования</string>
+    <string name="fifth_contact_dep">Менеджер по работе с неликвидами</string>
+
+    <string name="first_contact_numbers_dep">+7 (3476) 37–71-88\n+7 (3476) 37-70-76\n+7 (3476) 37-71-59\n+7 (3476) 37-70-77</string>
+    <string name="second_contact_numbers_dep">+7 (3476) 37-70-49\n+7 (3476) 37-71-61\n+7 (3476) 37-70-73</string>
+    <string name="third_contact_numbers_dep">+7 (3476) 37-70-05</string>
+    <string name="fourth_contact_numbers_dep">+7 (3476) 37-70-38</string>
+    <string name="fifth_contact_numbers_dep">+7 (3476) 37-70-65\n+7 (917) 414-79-80\n+7 (987) 595-47-73\n+7 (987) 585-33-75</string>
+
+</resources>

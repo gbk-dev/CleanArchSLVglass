@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_blue"
+    tools:context=".presentation.products.GlassActivity"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/glassFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/glass_appBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="?android:attr/selectableItemBackground"
+                app:elevation="0dp">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/glass_Toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:titleCentered="true"
+                    app:titleTextColor="@color/light_green">
+
+                </com.google.android.material.appbar.MaterialToolbar>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/glass_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/stages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stageOfProduction"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:elevation="0dp"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:backgroundTint="@android:color/transparent"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="40dp">
+
+            </com.google.android.material.button.MaterialButton>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

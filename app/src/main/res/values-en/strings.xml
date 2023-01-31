@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Salavatglass</string>
+
+    <string name="glass_title">Glass</string>
+    <string name="mirror_title">Mirror</string>
+    <string name="glassCon_title">Glass containers</string>
+
+    <string name="glass1">Float glass and tinted in a bulk glass</string>
+    <string name="glass2">Architectural and low-emissivity glass</string>
+    <string name="glass3">Tempered laminated glass and glass units</string>
+    <string name="glass4">Sodium silicate soluble</string>
+    <string name="glass5">Sodium liquid glass</string>
+
+    <string name="mirror1">Float mirror and tinted in a bulk mirror</string>
+    <string name="mirror2">Tempered laminated mirror</string>
+    <string name="mirror3">Sodium liquid mirror</string>
+
+    <string name="category1">The mirrors are made on the basis of high grade clear flat glass and mass-painted glass.</string>
+    <string name="category2">However, typical sheet glass does not provide us the necessary comfort and beautiful design.</string>
+    <string name="category3">Glass containers are made of colorless glass. The bottle is made with the help of 8 sectional machines.</string>
+
+    <string name="glass_con_title">The bottle is colorless</string>
+    <string name="glass_con_capacity200">Capacity - 200 ml</string>
+    <string name="glass_con_capacity160">Capacity - 160 ml</string>
+    <string name="glass_con_capacity375">Capacity - 375 ml</string>
+    <string name="glass_con_capacity350">Capacity - 350 ml</string>
+    <string name="glass_con_capacity500">Capacity - 500 ml</string>
+    <string name="glass_con_capacity700">Capacity - 700 ml</string>
+
+    <string name="menuTitle1">My order</string>
+    <string name="menuTitle2">Language</string>
+    <string name="menuTitle3">Log out</string>
+
+    <string name="login">Login/email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
+
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="no_account">There is no account yet</string>
+
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="first_and_second_name">First name Last name</string>
+    <string name="email">Email</string>
+    <string name="change_first_name">Change first name</string>
+    <string name="change_last_name">Change last name</string>
+    <string name="have_account">Already have an account</string>
+
+    <string name="left_request">Left request</string>
+    <string name="add_to_basket">Add to basket</string>
+    <string name="added_to_basket">Added to basket</string>
+
+    <string name="article">Article</string>
+    <string name="title">Title</string>
+    <string name="capacity">Capacity</string>
+    <string name="type_of_corolla">Type of corolla</string>
+
+    <string name="account">Account</string>
+    <string name="general">General</string>
+    <string name="notifications">Notifications</string>
+    <string name="contacts">Contacts</string>
+    <string name="about_the_app">About the app</string>
+    <string name="version">Version</string>
+    <string name="build">Build</string>
+    <string name="intelligence">All materials are taken from the website</string>
+    <string name="site">http://www.salstek.ru/</string>
+
+    <string name="contact_manger">Contact manager</string>
+    <string name="open_site">Open site</string>
+    <string name="stageOfProduction">Stage of production</string>
+
+    <string name="phones">Phones</string>
+    <string name="numbers_of_phones">+7 (3476) 37–71-55\n+7 (3476) 37-71-20</string>
+    <string name="office">Office</string>
+    <string name="number_of_office">+7 (3476) 37-70-88</string>
+    <string name="email_contacts">E-mail</string>
+    <string name="email_for_contacts">info@salstek.ru</string>
+    <string name="address">Address</string>
+    <string name="address_for_contacts">453253, Russian Federation, Republic of Bashkortostan, Salavat, Industrialnaya str., 18</string>
+
+    <string name="customer_service">Customer Service</string>
+    <string name="first_contact">Float glass and tinted in a bulk glass / Architectural and low-emissivity glass / Mirror</string>
+    <string name="second_contact">Architectural glass</string>
+    <string name="third_contact">Tempered laminated glass and glass units</string>
+    <string name="fourth_contact">Glass containers</string>
+    <string name="fifth_contact">Sodium silicate soluble</string>
+    <string name="sixth_contact">Sodium liquid glass</string>
+
+    <string name="first_contact_numbers">+7 (3476) 37–71-88\n+7 (3476) 37-70-76\n+7 (3476) 37-71-59\n+7 (3476) 37-70-77</string>
+    <string name="second_contact_numbers">+7 (3476) 37-70-49\n+7 (3476) 37-71-61\n+7 (3476) 37-70-73</string>
+    <string name="third_contact_numbers">+7 (3476) 37-70-05</string>
+    <string name="fourth_contact_numbers">+7 (3476) 37-70-38</string>
+    <string name="fifth_contact_numbers">+7 (3476) 37-70-65\n+7 (917) 414-79-80\n+7 (987) 595-47-73\n+7 (987) 585-33-75</string>
+    <string name="sixth_contact_numbers">+7 (3476) 37-70-65\n+7 (917) 414-79-80\n+7 (987) 595-47-73\n+7 (987) 585-33-75</string>
+
+    <string name="purchasing_department">Purchasing department</string>
+    <string name="first_contact_dep">Equipment and Configuration Group</string>
+    <string name="second_contact_dep">Group of basic raw materials</string>
+    <string name="third_contact_dep">Group of auxiliary materials</string>
+    <string name="fourth_contact_dep">Equipment Repair and Maintenance Group</string>
+    <string name="fifth_contact_dep">Illiquid Manager</string>
+
+    <string name="first_contact_numbers_dep">+7 (3476) 37–71-88\n+7 (3476) 37-70-76\n+7 (3476) 37-71-59\n+7 (3476) 37-70-77</string>
+    <string name="second_contact_numbers_dep">+7 (3476) 37-70-49\n+7 (3476) 37-71-61\n+7 (3476) 37-70-73</string>
+    <string name="third_contact_numbers_dep">+7 (3476) 37-70-05</string>
+    <string name="fourth_contact_numbers_dep">+7 (3476) 37-70-38</string>
+    <string name="fifth_contact_numbers_dep">+7 (3476) 37-70-65\n+7 (917) 414-79-80\n+7 (987) 595-47-73\n+7 (987) 585-33-75</string>
+
+</resources>

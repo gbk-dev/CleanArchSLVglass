@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/drawable-v24/ic_menu.xml" value="0.2605" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/drawable/ic_add.xml" value="0.2115" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/drawable/ic_back_arrow.xml" value="0.2235" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/drawable/ic_background_button.xml" value="0.2165" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/drawable/ic_background_green.xml" value="0.2165" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/drawable/ic_background_layout.xml" value="0.2165" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/drawable/ic_background_sign.xml" value="0.2235" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/drawable/ic_background_tab.xml" value="0.211" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/drawable/ic_background_text.xml" value="0.2165" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/drawable/ic_basket.xml" value="0.207" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/drawable/ic_check.xml" value="0.2335" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/drawable/ic_delete.xml" value="0.207" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/drawable/ic_glass2.xml" value="0.2625" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/drawable/ic_home.xml" value="0.236" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/drawable/ic_language.xml" value="0.2605" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/drawable/ic_logout.xml" value="0.2605" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/drawable/ic_main.xml" value="0.2625" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/drawable/ic_main_logo.xml" value="0.207" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/drawable/ic_reverse_corners.xml" value="0.2165" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/drawable/ic_shopping_bag.xml" value="0.2605" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/drawable/ic_tab_selector.xml" value="0.211" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/layout/activity_glass.xml" value="0.36666666666666664" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/layout/activity_glass_container.xml" value="0.2894399315946986" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/layout/activity_mirror.xml" value="0.36666666666666664" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/layout/activity_sign_in.xml" value="0.35260416666666666" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/layout/activity_sign_up.xml" value="0.36666666666666664" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/layout/activity_stage.xml" value="0.3009833262077811" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/layout/activity_stage_of_production.xml" value="0.3009833262077811" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/layout/basket_item.xml" value="0.30012825994014536" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/layout/categories_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/layout/fragment_about_app.xml" value="0.3009833262077811" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/layout/fragment_basket.xml" value="0.35260416666666666" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/layout/fragment_contacts.xml" value="0.3009833262077811" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/layout/fragment_first_stage.xml" value="0.3009833262077811" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/layout/fragment_glass.xml" value="0.25" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/layout/fragment_orders.xml" value="0.3009833262077811" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/layout/fragment_settings.xml" value="0.36666666666666664" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/layout/fragment_stage.xml" value="0.3009833262077811" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/layout/glass_con_dialog.xml" value="0.3009833262077811" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/layout/glasscon_item.xml" value="0.29717180244829045" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/layout/orders_item.xml" value="0.30012825994014536" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/layout/products_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/CleanArchSLVglass/app/src/main/res/menu/bottom_nav.xml" value="0.36666666666666664" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

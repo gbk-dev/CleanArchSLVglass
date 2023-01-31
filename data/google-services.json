@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "847382186699",
+    "firebase_url": "https://cleanarchslvglass-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "cleanarchslvglass",
+    "storage_bucket": "cleanarchslvglass.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:847382186699:android:3ae7cf86471ae8afd0e94e",
+        "android_client_info": {
+          "package_name": "com.example.data"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "847382186699-5fcbojvb97t1v1bk3pdhboahchi4hdbe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASq4Dc2B82myJupOdZW3EAzrHWbiHrMQw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "847382186699-5fcbojvb97t1v1bk3pdhboahchi4hdbe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
