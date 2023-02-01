@@ -1,6 +1,5 @@
 package com.example.cleanarchslvglass.di
 
-import android.app.Application
 import android.content.Context
 import com.example.cleanarchslvglass.data.db.RoomDataBase
 import com.example.cleanarchslvglass.data.repository.*

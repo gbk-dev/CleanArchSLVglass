@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cleanarchslvglass.R
 import com.example.cleanarchslvglass.databinding.ActivityGlassBinding
@@ -12,14 +11,14 @@ import com.example.cleanarchslvglass.domain.models.Glass
 import com.example.cleanarchslvglass.presentation.MainActivity
 import com.example.cleanarchslvglass.presentation.adapters.GlassAdapter
 import com.example.cleanarchslvglass.presentation.fragments.GlassFragment
-import com.example.cleanarchslvglass.presentation.viewmodel.ProductsViewModel
+import com.example.cleanarchslvglass.presentation.viewmodel.GlassViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class GlassActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityGlassBinding
-    private lateinit var viewModel: ProductsViewModel
+    private lateinit var viewModel: GlassViewModel
     private lateinit var adapter: GlassAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +26,7 @@ class GlassActivity : AppCompatActivity() {
         binding = ActivityGlassBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this)[ProductsViewModel::class.java]
+        viewModel = ViewModelProvider(this)[GlassViewModel::class.java]
 
         val getLanguage = resources.configuration.locale.language
         viewModel.checkLanguage(getLanguage)

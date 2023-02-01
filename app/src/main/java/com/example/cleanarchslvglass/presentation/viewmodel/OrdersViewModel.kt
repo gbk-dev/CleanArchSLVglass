@@ -16,7 +16,6 @@ import javax.inject.Inject
 @HiltViewModel
 class OrdersViewModel @Inject constructor(
     private val getOrdersUseCase: GetOrdersUseCase,
-    private val addOrdersUseCase: AddOrdersUseCase,
     private val deleteAllOrdersUseCase: DeleteAllOrdersUseCase
 ) : ViewModel(){
 
@@ -30,12 +29,6 @@ class OrdersViewModel @Inject constructor(
             getOrdersUseCase.getAllOrders().collect{
                 _ordersList.postValue(it)
             }
-        }
-    }
-
-    fun insertOrders(orders: Orders){
-        viewModelScope.launch(Dispatchers.IO) {
-            addOrdersUseCase.insertOrders(orders = orders)
         }
     }
 

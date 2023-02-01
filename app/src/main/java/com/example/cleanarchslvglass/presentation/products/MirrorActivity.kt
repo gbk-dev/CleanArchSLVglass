@@ -16,7 +16,7 @@ import com.example.cleanarchslvglass.R
 import com.example.cleanarchslvglass.databinding.ActivityMirrorBinding
 import com.example.cleanarchslvglass.presentation.MainActivity
 import com.example.cleanarchslvglass.presentation.fragments.ContactsFragment
-import com.example.cleanarchslvglass.presentation.viewmodel.ProductsViewModel
+import com.example.cleanarchslvglass.presentation.viewmodel.MirrorViewModel
 import com.google.android.material.appbar.AppBarLayout
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.abs
@@ -25,14 +25,14 @@ import kotlin.math.abs
 class MirrorActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMirrorBinding
-    private lateinit var viewModel: ProductsViewModel
+    private lateinit var viewModel: MirrorViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMirrorBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this)[ProductsViewModel::class.java]
+        viewModel = ViewModelProvider(this)[MirrorViewModel::class.java]
 
         val getLanguage = resources.configuration.locale.language
         viewModel.checkLanguage(getLanguage)

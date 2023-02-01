@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.cleanarchslvglass.R
 import com.example.cleanarchslvglass.databinding.FragmentAboutAppBinding
-import com.example.cleanarchslvglass.databinding.FragmentContactsBinding
 
 class AboutAppFragment : Fragment() {
 

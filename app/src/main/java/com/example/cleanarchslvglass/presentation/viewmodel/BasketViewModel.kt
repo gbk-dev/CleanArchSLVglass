@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cleanarchslvglass.domain.models.Basket
+import com.example.cleanarchslvglass.domain.models.Orders
+import com.example.cleanarchslvglass.domain.models.User
 import com.example.cleanarchslvglass.domain.usecase.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -14,11 +16,11 @@ import javax.inject.Inject
 @HiltViewModel
 class BasketViewModel @Inject constructor(
     private val getBasketUseCase: GetBasketUseCase,
-    private val addToBasketUseCase: AddToBasketUseCase,
     private val deleteFromBasketUseCase: DeleteFromBasketUseCase,
     private val deleteAllFromBasketUseCase: DeleteAllFromBasketUseCase,
     private val updateCountBasketUseCase: UpdateCountBasketUseCase,
-    private val postMessageUseCase: PostMessageUseCase
+    private val postMessageUseCase: PostMessageUseCase,
+    private val addOrdersUseCase: AddOrdersUseCase
 ) : ViewModel() {
 
     private val _basketList = MutableLiveData<List<Basket>>()
@@ -31,12 +33,6 @@ class BasketViewModel @Inject constructor(
             getBasketUseCase.getAll().collect {
                 _basketList.postValue(it)
             }
-        }
-    }
-
-    fun insert(basket: Basket){
-        viewModelScope.launch(Dispatchers.IO) {
-            addToBasketUseCase.insert(basket)
         }
     }
 
@@ -60,5 +56,11 @@ class BasketViewModel @Inject constructor(
 
     suspend fun postMessage(message: String){
         postMessageUseCase.postMessage(message = message)
+    }
+
+    fun insertOrders(orders: Orders){
+        viewModelScope.launch(Dispatchers.IO) {
+            addOrdersUseCase.insertOrders(orders = orders)
+        }
     }
 }

@@ -4,12 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
@@ -19,9 +17,7 @@ import com.example.cleanarchslvglass.databinding.ActivityGlassContainerBinding
 import com.example.cleanarchslvglass.domain.models.Basket
 import com.example.cleanarchslvglass.presentation.MainActivity
 import com.example.cleanarchslvglass.presentation.adapters.GlassContainerAdapter
-import com.example.cleanarchslvglass.presentation.viewmodel.BasketViewModel
-import com.example.cleanarchslvglass.presentation.viewmodel.ProductsViewModel
-import com.example.cleanarchslvglass.presentation.viewmodel.UserViewModel
+import com.example.cleanarchslvglass.presentation.viewmodel.GlassConViewModel
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
@@ -31,9 +27,7 @@ import kotlinx.coroutines.launch
 class GlassContainerActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityGlassContainerBinding
-    private lateinit var viewModelProducts: ProductsViewModel
-    private lateinit var viewModelBasket: BasketViewModel
-    private lateinit var viewModelUser: UserViewModel
+    private lateinit var viewModel: GlassConViewModel
     private lateinit var adapter: GlassContainerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,13 +35,11 @@ class GlassContainerActivity : AppCompatActivity() {
         binding = ActivityGlassContainerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModelProducts = ViewModelProvider(this)[ProductsViewModel::class.java]
-        viewModelBasket = ViewModelProvider(this)[BasketViewModel::class.java]
-        viewModelUser = ViewModelProvider(this)[UserViewModel::class.java]
-        viewModelUser.getUser()
+        viewModel = ViewModelProvider(this)[GlassConViewModel::class.java]
+        viewModel.getUser()
 
         val getLanguage = resources.configuration.locale.language
-        viewModelProducts.checkLanguage(getLanguage)
+        viewModel.checkLanguage(getLanguage)
 
         val toolbar = binding.glassConToolbar
         toolbar.title = resources.getString(R.string.glassCon_title)
@@ -64,8 +56,8 @@ class GlassContainerActivity : AppCompatActivity() {
         adapter = GlassContainerAdapter(this)
         recyclerView.adapter = adapter
 
-        viewModelProducts.getGlassCon()
-        viewModelProducts.glassConList.observe(this){ glassCon ->
+        viewModel.getGlassCon()
+        viewModel.glassConList.observe(this){ glassCon ->
             adapter.setGlassConList(glassCon)
         }
 
@@ -108,9 +100,9 @@ class GlassContainerActivity : AppCompatActivity() {
                     userId = ""
                 )
 
-                viewModelProducts.glassConList.observe(this@GlassContainerActivity){ glassCon ->
+                viewModel.glassConList.observe(this@GlassContainerActivity){ glassCon ->
 
-                    viewModelUser.userList.observe(this@GlassContainerActivity){ user ->
+                    viewModel.userList.observe(this@GlassContainerActivity){ user ->
 
                         val id = glassCon.get(position).id
                         val article = glassCon.get(position).article
@@ -145,7 +137,7 @@ class GlassContainerActivity : AppCompatActivity() {
 
                 addToBasket.setOnClickListener {
                     lifecycleScope.launch {
-                        viewModelBasket.insert(basket)
+                        viewModel.insert(basket)
                     }
                     Toast.makeText(this@GlassContainerActivity, resources.getString(R.string.added_to_basket), Toast.LENGTH_SHORT).show()
                 }
@@ -155,7 +147,7 @@ class GlassContainerActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        viewModelProducts.glassConList.removeObservers(this)
-        viewModelUser.userList.removeObservers(this)
+        viewModel.glassConList.removeObservers(this)
+        viewModel.userList.removeObservers(this)
     }
 }

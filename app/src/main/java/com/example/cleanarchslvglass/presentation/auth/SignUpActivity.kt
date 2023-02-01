@@ -3,7 +3,6 @@ package com.example.cleanarchslvglass.presentation.auth
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import com.example.cleanarchslvglass.presentation.viewmodel.AuthViewModel
 import androidx.lifecycle.ViewModelProvider

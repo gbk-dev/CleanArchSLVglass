@@ -5,9 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cleanarchslvglass.domain.models.Settings
-import com.example.cleanarchslvglass.domain.usecase.GetNotificationStateUseCase
-import com.example.cleanarchslvglass.domain.usecase.SetSettingsUseCase
-import com.example.cleanarchslvglass.domain.usecase.UpdateNotificationStateUseCase
+import com.example.cleanarchslvglass.domain.models.User
+import com.example.cleanarchslvglass.domain.usecase.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -17,7 +16,10 @@ import javax.inject.Inject
 class SettingsViewModel @Inject constructor(
     private val getNotificationStateUseCase: GetNotificationStateUseCase,
     private val updateNotificationStateUseCase: UpdateNotificationStateUseCase,
-    private val setSettingsUseCase: SetSettingsUseCase
+    private val setSettingsUseCase: SetSettingsUseCase,
+    private val getUserDataUseCase: GetUserDataUseCase,
+    private val logOutUseCase: LogOutUseCase,
+    private val updateUserDataUseCase: UpdateUserDataUseCase
 ) : ViewModel() {
 
     private val _settingsList = MutableLiveData<List<Settings>>()
@@ -43,5 +45,35 @@ class SettingsViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             updateNotificationStateUseCase.updateNotificationState(state = state)
         }
+    }
+
+    private val _userList = MutableLiveData<User>()
+    val userList : LiveData<User> by lazy {
+        _userList
+    }
+
+    fun getUser(){
+        viewModelScope.launch(Dispatchers.IO) {
+            getUserDataUseCase.getUserData().collect(){
+                when{
+                    it.isSuccess -> {
+                        val getUserList = it.getOrNull()
+                        _userList.postValue(getUserList!!)
+                    }
+
+                    it.isFailure -> {
+                        it.exceptionOrNull()?.printStackTrace()
+                    }
+                }
+            }
+        }
+    }
+
+    fun logOut() : Unit{
+        return logOutUseCase.logOut()
+    }
+
+    fun updateUser(user: Map<String, String>): String{
+        return updateUserDataUseCase.updateUser(user)
     }
 }

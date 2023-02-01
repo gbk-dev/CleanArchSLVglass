@@ -7,37 +7,27 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.example.cleanarchslvglass.R
 import com.example.cleanarchslvglass.databinding.FragmentSettingsBinding
 import com.example.cleanarchslvglass.domain.models.Settings
 import com.example.cleanarchslvglass.presentation.MainActivity
 import com.example.cleanarchslvglass.presentation.auth.SignInActivity
-import com.example.cleanarchslvglass.presentation.viewmodel.CategoryViewModel
 import com.example.cleanarchslvglass.presentation.viewmodel.SettingsViewModel
-import com.example.cleanarchslvglass.presentation.viewmodel.UserViewModel
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.ktx.messaging
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.firstOrNull
-import kotlinx.coroutines.launch
 import java.util.*
 
 @AndroidEntryPoint
 class SettingsFragment : Fragment() {
 
-    private val viewModel: UserViewModel by viewModels()
     private val settingsViewModel: SettingsViewModel by viewModels()
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
@@ -53,8 +43,8 @@ class SettingsFragment : Fragment() {
         _binding = FragmentSettingsBinding.inflate(layoutInflater)
         binding.scrollSettings.visibility = View.VISIBLE
 
-        viewModel.getUser()
-        viewModel.userList.observe(viewLifecycleOwner){ user ->
+        settingsViewModel.getUser()
+        settingsViewModel.userList.observe(viewLifecycleOwner){ user ->
             val firstName = user.firstName.toString()
             val lastName = user.lastName.toString()
             val email = user.email.toString()
@@ -107,9 +97,9 @@ class SettingsFragment : Fragment() {
                         val newFirstNMap = mapOf(
                             "firstName" to newFirstN
                         )
-                        viewModel.updateUser(newFirstNMap)
+                        settingsViewModel.updateUser(newFirstNMap)
                         binding.settingsFirstNEdit.text = null
-                        Toast.makeText(view?.context, viewModel.updateUser(newFirstNMap), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(view?.context, settingsViewModel.updateUser(newFirstNMap), Toast.LENGTH_SHORT).show()
                     }
                 } else {
                     firstLayout.isEndIconVisible = false
@@ -134,9 +124,9 @@ class SettingsFragment : Fragment() {
                         val newLastNMap = mapOf(
                             "lastName" to newLastN
                         )
-                        viewModel.updateUser(newLastNMap)
+                        settingsViewModel.updateUser(newLastNMap)
                         binding.settingsLastNEdit.text = null
-                        Toast.makeText(view?.context, viewModel.updateUser(newLastNMap), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(view?.context, settingsViewModel.updateUser(newLastNMap), Toast.LENGTH_SHORT).show()
                     }
                 } else {
                     lastLayout.isEndIconVisible = false
@@ -200,7 +190,7 @@ class SettingsFragment : Fragment() {
         }
 
         binding.logOut.setOnClickListener {
-            viewModel.logOut()
+            settingsViewModel.logOut()
             val intent = Intent(activity, SignInActivity::class.java)
             startActivity(intent)
         }
@@ -210,7 +200,7 @@ class SettingsFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        viewModel.userList.removeObservers(viewLifecycleOwner)
+        settingsViewModel.userList.removeObservers(viewLifecycleOwner)
         settingsViewModel.settingsList.removeObservers(viewLifecycleOwner)
         _binding = null
     }

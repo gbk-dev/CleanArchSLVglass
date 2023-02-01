@@ -2,25 +2,18 @@ package com.example.cleanarchslvglass.presentation.fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isNotEmpty
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cleanarchslvglass.databinding.FragmentBasketBinding
-import com.example.cleanarchslvglass.domain.models.Basket
 import com.example.cleanarchslvglass.domain.models.Orders
-import com.example.cleanarchslvglass.presentation.MainActivity
 import com.example.cleanarchslvglass.presentation.adapters.BasketAdapter
 import com.example.cleanarchslvglass.presentation.viewmodel.BasketViewModel
-import com.example.cleanarchslvglass.presentation.viewmodel.OrdersViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -32,7 +25,6 @@ class BasketFragment : Fragment() {
     private var _binding : FragmentBasketBinding? = null
     private val binding get() = _binding!!
     private val viewModel : BasketViewModel by viewModels()
-    private val viewModelOrders : OrdersViewModel by viewModels()
     private lateinit var recyclerView: RecyclerView
 
     @SuppressLint("NotifyDataSetChanged")
@@ -102,7 +94,7 @@ class BasketFragment : Fragment() {
                                     userId = it.userId
                                 )
 
-                                viewModelOrders.insertOrders(orders = orders)
+                                viewModel.insertOrders(orders = orders)
                             }
                         }
                     }

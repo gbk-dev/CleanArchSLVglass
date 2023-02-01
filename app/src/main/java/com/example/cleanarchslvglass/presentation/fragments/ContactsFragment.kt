@@ -1,29 +1,18 @@
 package com.example.cleanarchslvglass.presentation.fragments
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.lifecycleScope
 import com.example.cleanarchslvglass.R
 import com.example.cleanarchslvglass.databinding.FragmentContactsBinding
-import com.example.cleanarchslvglass.databinding.FragmentGlassBinding
-import com.yandex.mapkit.Animation
-import com.yandex.mapkit.MapKit
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
-import com.yandex.mapkit.internal.MapKitBinding
 import com.yandex.mapkit.map.CameraPosition
-import com.yandex.mapkit.map.MapObject
-import com.yandex.mapkit.map.MapObjectTapListener
 import com.yandex.mapkit.mapview.MapView
 import com.yandex.runtime.ui_view.ViewProvider
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 class ContactsFragment : Fragment() {
 
