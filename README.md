@@ -7,7 +7,7 @@
 - Coroutines
 - Firebase(RealtimeDB, MessagingService, Authentication)
 - MVVM
-- CleanArchitecture
+- Multi-module CleanArchitecture
 - Room
 - Retrofit
 - Dagger Hilt
