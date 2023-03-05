@@ -48,7 +48,6 @@ class SettingsFragment : Fragment() {
             val firstName = user.firstName.toString()
             val lastName = user.lastName.toString()
             val email = user.email.toString()
-            // val uid = user.uid.toString()
 
             binding.name.text = "$firstName $lastName"
             binding.settingsFirstNEdit.hint = firstName
@@ -137,7 +136,7 @@ class SettingsFragment : Fragment() {
 
         })
 
-        binding.switchNoti.setOnCheckedChangeListener { p0, p1 ->
+        binding.switchNoti.setOnCheckedChangeListener { _, p1 ->
             val state = if (p1) {
                 1
             } else {
