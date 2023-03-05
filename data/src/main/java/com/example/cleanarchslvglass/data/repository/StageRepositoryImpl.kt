@@ -7,15 +7,15 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlinx.coroutines.async
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.channels.trySendBlocking
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.withContext
 
 class StageRepositoryImpl : StageRepository {
 
     private val db: FirebaseDatabase = FirebaseDatabase.getInstance()
-    private val url = "https://cleanarchslvglass-default-rtdb.europe-west1.firebasedatabase.app/"
     private var languageStage = ""
     private lateinit var listenerStageGlass: ValueEventListener
     private lateinit var listenerStageSodiumLiquidGlass: ValueEventListener
@@ -24,7 +24,7 @@ class StageRepositoryImpl : StageRepository {
 
     override fun getStageGlass() = callbackFlow<Result<List<Stage>>> {
 
-        async {
+        withContext(Dispatchers.Default) {
 
             listenerStageGlass = object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -39,24 +39,24 @@ class StageRepositoryImpl : StageRepository {
                 }
             }
 
-            if (checkLanguage(languageStage) == "ru"){
-                db.getReferenceFromUrl(url)
+            if (checkLanguage(languageStage) == "ru") {
+                db.reference
                     .child("StageOfProduction/Glass")
                     .addValueEventListener(listenerStageGlass)
             } else {
-                db.getReferenceFromUrl(url)
+                db.reference
                     .child("StageOfProductionEn/Glass")
                     .addValueEventListener(listenerStageGlass)
             }
 
-        }.await()
+        }
 
         awaitClose {
-            db.getReferenceFromUrl(url)
+            db.reference
                 .child("StageOfProduction/Glass")
                 .removeEventListener(listenerStageGlass)
 
-            db.getReferenceFromUrl(url)
+            db.reference
                 .child("StageOfProductionEn/Glass")
                 .removeEventListener(listenerStageGlass)
         }
@@ -65,7 +65,7 @@ class StageRepositoryImpl : StageRepository {
 
     override fun getStageSodiumLiquidGlass() = callbackFlow<Result<List<Stage>>> {
 
-        async {
+        withContext(Dispatchers.Default) {
 
             listenerStageSodiumLiquidGlass = object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -80,24 +80,24 @@ class StageRepositoryImpl : StageRepository {
                 }
             }
 
-            if (checkLanguage(languageStage) == "ru"){
-                db.getReferenceFromUrl(url)
+            if (checkLanguage(languageStage) == "ru") {
+                db.reference
                     .child("StageOfProduction/SodiumLiquidGlass")
                     .addValueEventListener(listenerStageSodiumLiquidGlass)
             } else {
-                db.getReferenceFromUrl(url)
+                db.reference
                     .child("StageOfProductionEn/SodiumLiquidGlass")
                     .addValueEventListener(listenerStageSodiumLiquidGlass)
             }
 
-        }.await()
+        }
 
         awaitClose {
-            db.getReferenceFromUrl(url)
+            db.reference
                 .child("StageOfProduction/SodiumLiquidGlass")
                 .removeEventListener(listenerStageSodiumLiquidGlass)
 
-            db.getReferenceFromUrl(url)
+            db.reference
                 .child("StageOfProductionEn/SodiumLiquidGlass")
                 .removeEventListener(listenerStageSodiumLiquidGlass)
         }
@@ -106,7 +106,7 @@ class StageRepositoryImpl : StageRepository {
 
     override fun getStageSodiumSilicate() = callbackFlow<Result<List<Stage>>> {
 
-        async {
+        withContext(Dispatchers.Default) {
 
             listenerStageSodiumSilicate = object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -121,24 +121,24 @@ class StageRepositoryImpl : StageRepository {
                 }
             }
 
-            if (checkLanguage(languageStage) == "ru"){
-                db.getReferenceFromUrl(url)
+            if (checkLanguage(languageStage) == "ru") {
+                db.reference
                     .child("StageOfProduction/SodiumSilicate")
                     .addValueEventListener(listenerStageSodiumSilicate)
             } else {
-                db.getReferenceFromUrl(url)
+                db.reference
                     .child("StageOfProductionEn/SodiumSilicate")
                     .addValueEventListener(listenerStageSodiumSilicate)
             }
 
-        }.await()
+        }
 
         awaitClose {
-            db.getReferenceFromUrl(url)
+            db.reference
                 .child("StageOfProduction/SodiumSilicate")
                 .removeEventListener(listenerStageSodiumSilicate)
 
-            db.getReferenceFromUrl(url)
+            db.reference
                 .child("StageOfProductionEn/SodiumSilicate")
                 .removeEventListener(listenerStageSodiumSilicate)
         }
@@ -147,7 +147,7 @@ class StageRepositoryImpl : StageRepository {
 
     override fun getStage() = callbackFlow<Result<List<Stage>>> {
 
-        async {
+        withContext(Dispatchers.Default) {
 
             listenerStage = object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -162,24 +162,24 @@ class StageRepositoryImpl : StageRepository {
                 }
             }
 
-            if (checkLanguage(languageStage) == "ru"){
-                db.getReferenceFromUrl(url)
+            if (checkLanguage(languageStage) == "ru") {
+                db.reference
                     .child("Stage")
                     .addValueEventListener(listenerStage)
             } else {
-                db.getReferenceFromUrl(url)
+                db.reference
                     .child("StageEn")
                     .addValueEventListener(listenerStage)
             }
 
-        }.await()
+        }
 
         awaitClose {
-            db.getReferenceFromUrl(url)
+            db.reference
                 .child("Stage")
                 .removeEventListener(listenerStage)
 
-            db.getReferenceFromUrl(url)
+            db.reference
                 .child("StageEn")
                 .removeEventListener(listenerStage)
         }

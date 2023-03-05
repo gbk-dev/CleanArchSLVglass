@@ -6,22 +6,21 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlinx.coroutines.async
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.channels.trySendBlocking
 import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class CategoryRepositoryImpl : CategoryRepository{
 
     private val db: FirebaseDatabase = FirebaseDatabase.getInstance()
-    private val url = "https://cleanarchslvglass-default-rtdb.europe-west1.firebasedatabase.app/"
     private var languageCategory = ""
     private lateinit var listener: ValueEventListener
 
     override fun getCategory() = callbackFlow<Result<List<Category>>>{
 
-        async {
+        withContext(Dispatchers.Default) {
             listener = object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val category = snapshot.children.map { ds ->
@@ -37,23 +36,23 @@ class CategoryRepositoryImpl : CategoryRepository{
             }
 
             if (checkLanguage(languageCategory) == "ru") {
-                db.getReferenceFromUrl(url)
+                db.reference
                     .child("Category")
                     .addValueEventListener(listener)
 
             } else {
-                db.getReferenceFromUrl(url)
+                db.reference
                     .child("CategoryEn")
                     .addValueEventListener(listener)
             }
-        }.await()
+        }
 
         awaitClose {
-            db.getReferenceFromUrl(url)
+            db.reference
                 .child("Category")
                 .removeEventListener(listener)
 
-            db.getReferenceFromUrl(url)
+            db.reference
                 .child("CategoryEn")
                 .removeEventListener(listener)
         }

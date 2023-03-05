@@ -18,7 +18,6 @@ class SharedPrefUserStorage : UserStorage {
     private val dbAuth: FirebaseAuth = FirebaseAuth.getInstance()
 
     private val currentUser = dbAuth.uid
-    private val url = "https://cleanarchslvglass-default-rtdb.europe-west1.firebasedatabase.app/"
     private lateinit var listener: ValueEventListener
 
     override fun getUserData()= callbackFlow<Result<UserModel>> {
@@ -36,13 +35,13 @@ class SharedPrefUserStorage : UserStorage {
 
             }
 
-            db.getReferenceFromUrl(url)
+            db.reference
                 .child("Users/$currentUser")
                 .addValueEventListener(listener)
         }
 
         awaitClose {
-            db.getReferenceFromUrl(url)
+            db.reference
                 .child("Users/$currentUser")
                 .removeEventListener(listener)
         }
@@ -54,7 +53,7 @@ class SharedPrefUserStorage : UserStorage {
     }
 
     override fun updateUser(user: Map<String, String>): String {
-        db.getReferenceFromUrl(url)
+        db.reference
             .child("Users/$currentUser")
             .updateChildren(user)
 
