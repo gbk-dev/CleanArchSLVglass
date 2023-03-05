@@ -6,11 +6,10 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.cleanarchslvglass.presentation.viewmodel.AuthViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import com.example.cleanarchslvglass.databinding.ActivitySignUpBinding
+import com.example.cleanarchslvglass.domain.models.Resource
 import com.example.cleanarchslvglass.domain.models.User
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.*
 
 @AndroidEntryPoint
 class SignUpActivity : AppCompatActivity() {
@@ -49,20 +48,30 @@ class SignUpActivity : AppCompatActivity() {
                 && email!!.isNotEmpty()
                 && password!!.isNotEmpty()
                 && confirmPassword!!.isNotEmpty()
-            ){
-
+            ) {
                 if (password.toString() == confirmPassword.toString()){
-                    val user: User = User(firstName = firstName.toString(), lastName = lastName.toString(), email = email.toString())
 
-                    var result = ""
-                    lifecycleScope.launch {
-                        viewModel.createUser(user, password.toString())
-                        result = viewModel.createUser(user, password.toString())
+                    val user = User(firstName = firstName.toString(), lastName = lastName.toString(), email = email.toString())
+                    viewModel.signUp(user = user, password = password.toString()).runCatching {
+                        val state = viewModel.signUpState.value
+                        if (state != null){
+                            when(state) {
+                                is Resource.Loading -> {
+                                    Toast.makeText(this@SignUpActivity, "Загрузка", Toast.LENGTH_SHORT).show()
+                                }
+                                is Resource.Success -> {
+                                    if (state.result){
+                                        val intent = Intent(this@SignUpActivity, SignInActivity::class.java)
+                                        startActivity(intent)
+                                        Toast.makeText(this@SignUpActivity, "Успешно", Toast.LENGTH_SHORT).show()
+                                    }
+                                }
+                                is Resource.Failure -> {
+                                    Toast.makeText(this@SignUpActivity, state.exception, Toast.LENGTH_LONG).show()
+                                }
+                            }
+                        }
                     }
-
-                    Toast.makeText(this@SignUpActivity, result, Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, SignInActivity::class.java)
-                    startActivity(intent)
 
                 } else {
                     Toast.makeText(this, "Пароли не совпадают", Toast.LENGTH_SHORT).show()

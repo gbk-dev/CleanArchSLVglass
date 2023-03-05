@@ -1,12 +1,16 @@
 package com.example.cleanarchslvglass.presentation.viewmodel
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.cleanarchslvglass.data.repository.UserAuthRepositoryImpl
+import androidx.lifecycle.viewModelScope
+import com.example.cleanarchslvglass.domain.models.Resource
 import com.example.cleanarchslvglass.domain.models.User
 import com.example.cleanarchslvglass.domain.usecase.AuthUserUseCase
 import com.example.cleanarchslvglass.domain.usecase.CheckUserUseCase
 import com.example.cleanarchslvglass.domain.usecase.SetUserUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -16,12 +20,31 @@ class AuthViewModel @Inject constructor(
     private val checkUserUseCase: CheckUserUseCase
 ) : ViewModel() {
 
-    suspend fun createUser(user: User, password: String): String{
-        return setUserUseCase.createUser(user, password)
+
+    private val _signUpState = MutableLiveData<Resource<Boolean>>()
+    val signUpState : LiveData<Resource<Boolean>> by lazy {
+        _signUpState
     }
 
-    suspend fun authUser(user: User, password: String): String{
-        return authUserUseCase.authUser(user, password)
+    private val _signInState = MutableLiveData<Resource<Boolean>>()
+    val signInState : LiveData<Resource<Boolean>> by lazy {
+        _signInState
+    }
+
+    fun signUp(user: User, password: String){
+        viewModelScope.launch {
+            setUserUseCase.createUser(user = user, password = password).collect{
+                _signUpState.postValue(it)
+            }
+        }
+    }
+
+    fun signIn(user: User, password: String){
+        viewModelScope.launch {
+            authUserUseCase.authUser(user = user, password = password).collect{
+                _signInState.postValue(it)
+            }
+        }
     }
 
     fun checkUser(): Boolean{

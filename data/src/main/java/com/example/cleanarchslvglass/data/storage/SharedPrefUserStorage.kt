@@ -6,10 +6,11 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlinx.coroutines.async
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.channels.trySendBlocking
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.withContext
 
 class SharedPrefUserStorage : UserStorage {
 
@@ -22,7 +23,7 @@ class SharedPrefUserStorage : UserStorage {
 
     override fun getUserData()= callbackFlow<Result<UserModel>> {
 
-        async {
+        withContext(Dispatchers.Default) {
             listener = object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val user = snapshot.getValue(UserModel::class.java)
@@ -38,7 +39,7 @@ class SharedPrefUserStorage : UserStorage {
             db.getReferenceFromUrl(url)
                 .child("Users/$currentUser")
                 .addValueEventListener(listener)
-        }.await()
+        }
 
         awaitClose {
             db.getReferenceFromUrl(url)
